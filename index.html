@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("./images/images\ \(1\).jpg");
+            background-size: contain ;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: rgba(233, 8, 8, 0.8);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #ed0d0d;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(239, 4, 4, 0.8);
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: rgba(223, 11, 11, 0.9);
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 165, 0, 0.9);
+        }
+
+        .container {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            color: #ff4500;
+        }
+
+        .product-item {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-item h3 {
+            margin: 0;
+            padding: 10px 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .product-item p {
+            margin: 0;
+            padding: 0 10px 10px 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .product-item button {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-item button:hover {
+            background-color: #ff6347;
+        }
+
+        .product-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item button {
+            padding: 5px 10px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-item button:hover {
+            background-color: #ff6347;
+        }
+
+        .order-section {
+            text-align: center;
+        }
+
+        .order-section button {
+            padding: 10px 20px;
+            background-color: #32cd32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .order-section button:hover {
+            background-color: #3cb371;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        Welcome to CG Pet Shop
+    </header>
+
+    <nav>
+        <a onclick="showSection('food')">Pet Food</a>
+        <a onclick="showSection('toys')">Pet Toys</a>
+        <a onclick="showSection('accessories')">Pet Accessories</a>
+        <a onclick="showSection('about')">About Us</a>
+        <a onclick="showSection('contact')">Contact</a>
+        <a onclick="showSection('cart')">Cart</a>
+        <a onclick="showSection('order')">Order</a>
+    </nav>
+
+    <div class="container">
+        <!-- Pet Food Section -->
+        <section id="food" class="section hidden">
+            <h2>Pet Food</h2>
+            <!-- Dog Food -->
+            <h3>Dog Food</h3>
+            <div class="product-item">
+                <img src="./images/download.jpg" alt="Premium Dog Food">
+                <h3>Premium Dog Food</h3>
+                <p>Nutritious and delicious food for dogs of all ages.</p>
+                <button onclick="addToCart('Premium Dog Food')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (2).jpg" alt="Grain-Free Dog Food">
+                <h3>Grain-Free Dog Food</h3>
+                <p>Perfect for dogs with food sensitivities.</p>
+                <button onclick="addToCart('Grain-Free Dog Food')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (1).jpg" alt="Puppy Food">
+                <h3>Puppy Food</h3>
+                <p>Specially formulated for the growing needs of puppies.</p>
+                <button onclick="addToCart('Puppy Food')">Add to Cart</button>
+            </div>
+            <!-- Cat Food -->
+            <h3>Cat Food</h3>
+            <div class="product-item">
+                <img src="./images/download (4).jpg" alt="Healthy Cat Food">
+                <h3>Healthy Cat Food</h3>
+                <p>Wholesome food made with natural ingredients for cats.</p>
+                <button onclick="addToCart('Healthy Cat Food')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (3).jpg" alt="Grain-Free Cat Food">
+                <h3>Grain-Free Cat Food</h3>
+                <p>Ideal for cats with dietary restrictions.</p>
+                <button onclick="addToCart('Grain-Free Cat Food')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (5).jpg" alt="Senior Cat Food">
+                <h3>Senior Cat Food</h3>
+                <p>Formulated to support the health of senior cats.</p>
+                <button onclick="addToCart('Senior Cat Food')">Add to Cart</button>
+            </div>
+            <!-- Fish Food -->
+            <h3>Fish Food</h3>
+            <div class="product-item">
+                <img src="./images/download (6).jpg" alt="Tropical Fish Flakes">
+                <h3>Tropical Fish Flakes</h3>
+                <p>Rich in nutrients for vibrant and healthy fish.</p>
+                <button onclick="addToCart('Tropical Fish Flakes')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (7).jpg" alt="Goldfish Pellets">
+                <h3>Goldfish Pellets</h3>
+                <p>Balanced diet to keep your goldfish healthy.</p>
+                <button onclick="addToCart('Goldfish Pellets')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (8).jpg" alt="Cichlid Sticks">
+                <h3>Cichlid Sticks</h3>
+                <p>Specifically designed for the nutritional needs of cichlids.</p>
+                <button onclick="addToCart('Cichlid Sticks')">Add to Cart</button>
+            </div>
+        </section>
+
+        <!-- Pet Toys Section -->
+        <section id="toys" class="section hidden">
+            <h2>Pet Toys</h2>
+            <!-- Dog Toys -->
+            <h3>Dog Toys</h3>
+            <div class="product-item">
+                <img src="./images/download (9).jpg" alt="Rubber Ball">
+                <h3>Rubber Ball</h3>
+                <p>Durable and bouncy ball for hours of fetch fun.</p>
+                <button onclick="addToCart('Rubber Ball')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (10).jpg" alt="Squeaky Toy">
+                <h3>Squeaky Toy</h3>
+                <p>Irresistible squeaky toy for playful dogs.</p>
+                <button onclick="addToCart('Squeaky Toy')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (11).jpg" alt="Rope Tug Toy">
+                <h3>Rope Tug Toy</h3>
+                <p>Strong rope toy perfect for tug-of-war.</p>
+                <button onclick="addToCart('Rope Tug Toy')">Add to Cart</button>
+            </div>
+            <!-- Cat Toys -->
+            <h3>Cat Toys</h3>
+            <div class="product-item">
+                <img src="./images/download (12).jpg" alt="Feather Wand">
+                <h3>Feather Wand</h3>
+                <p>Interactive wand with feathers to keep cats entertained.</p>
+                <button onclick="addToCart('Feather Wand')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (13).jpg" alt="Catnip Mouse">
+                <h3>Catnip Mouse</h3>
+                <p>Filled with catnip to drive your cat wild.</p>
+                <button onclick="addToCart('Catnip Mouse')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (14).jpg" alt="Laser Pointer">
+                <h3>Laser Pointer</h3>
+                <p>Chase the laser beam for endless fun.</p>
+                <button onclick="addToCart('Laser Pointer')">Add to Cart</button>
+            </div>
+            <!-- Bird Toys -->
+            <h3>Bird Toys</h3>
+            <div class="product-item">
+                <img src="./images/download (15).jpg" alt="Swing Toy">
+                <h3>Swing Toy</h3>
+                <p>Perfect for small birds to swing and play.</p>
+                <button onclick="addToCart('Swing Toy')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (16).jpg" alt="Mirror with Bell">
+                <h3>Mirror with Bell</h3>
+                <p>Interactive mirror with a bell to keep birds engaged.</p>
+                <button onclick="addToCart('Mirror with Bell')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (17).jpg" alt="Ladder Toy">
+                <h3>Ladder Toy</h3>
+                <p>Encourages climbing and play for birds.</p>
+                <button onclick="addToCart('Ladder Toy')">Add to Cart</button>
+            </div>
+        </section>
+
+        <!-- Pet Accessories Section -->
+        <section id="accessories" class="section hidden">
+            <h2>Pet Accessories</h2>
+            <!-- Dog Accessories -->
+            <h3>Dog Accessories</h3>
+            <div class="product-item">
+                <img src="./images/download (18).jpg" alt="Leather Leash">
+                <h3>Leather Leash</h3>
+                <p>Stylish and durable leather leash for daily walks.</p>
+                <button onclick="addToCart('Leather Leash')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (20).jpg" alt="Dog Collar">
+                <h3>Dog Collar</h3>
+                <p>Adjustable collar with ID tag holder.</p>
+                <button onclick="addToCart('Dog Collar')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (21).jpg" alt="Food Bowl">
+                <h3>Food Bowl</h3>
+                <p>Stainless steel bowl for food or water.</p>
+                <button onclick="addToCart('Food Bowl')">Add to Cart</button>
+            </div>
+            <!-- Cat Accessories -->
+            <h3>Cat Accessories</h3>
+            <div class="product-item">
+                <img src="./images/download (22).jpg" alt="Scratching Post">
+                <h3>Scratching Post</h3>
+                <p>Sturdy post to satisfy your cat's scratching needs.</p>
+                <button onclick="addToCart('Scratching Post')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (23).jpg" alt="Cat Bed">
+                <h3>Cat Bed</h3>
+                <p>Cozy and comfortable bed for your cat.</p>
+                <button onclick="addToCart('Cat Bed')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/litter.jpg" alt="Litter Box">
+                <h3>Litter Box</h3>
+                <p>Easy to clean and maintain litter box.</p>
+                <button onclick="addToCart('Litter Box')">Add to Cart</button>
+            </div>
+            <!-- Bird Accessories -->
+            <h3>Bird Accessories</h3>
+            <div class="product-item">
+                <img src="./images/download (11).jpg" alt="Bird Cage">
+                <h3>Bird Cage</h3>
+                <p>Spacious cage with multiple perches and feeders.</p>
+                <button onclick="addToCart('Bird Cage')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (12).jpg" alt="Bird Feeder">
+                <h3>Bird Feeder</h3>
+                <p>Easy to refill feeder for outdoor birds.</p>
+                <button onclick="addToCart('Bird Feeder')">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="./images/download (13).jpg" alt="Perch">
+                <h3>Perch</h3>
+                <p>Comfortable perch for your bird's cage.</p>
+                <button onclick="addToCart('Perch')">Add to Cart</button>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="section hidden">
+            <h2>About Us</h2>
+            <p>CG Pet Shop is dedicated to providing high-quality products for your beloved pets. We believe in the
+                importance of nutrition, play, and care for all pets, and strive to offer the best selection of products
+                to meet those needs. Our team is passionate about animals and committed to helping you find the perfect
+                products for your pets. We pride ourselves on excellent customer service and are always here to assist
+                with any questions or concerns.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section hidden">
+            <h2>Contact Us</h2>
+            <p>Email: CGpetshop@gmail.com</p>
+            <p>Phone: +91-9876543210</p>
+            <p>Address: 123 Pet Lane, Chennai, Tamil Nadu, India</p>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart" class="section hidden">
+            <h2>Cart</h2>
+            <div id="cart-items"></div>
+        </section>
+
+        <!-- Order Section -->
+        <section id="order" class="section hidden">
+            <h2>Place Order</h2>
+            <div class="order-section">
+                <button onclick="placeOrder()">Place Order</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2024 CG Pet Shop. All rights reserved.
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.add('hidden'));
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        function addToCart(productName) {
+            cart.push(productName);
+            displayCart();
+            alert(productName + ' has been added to the cart.');
+        }
+
+        function displayCart() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            cartItemsDiv.innerHTML = '';
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <span>${item}</span>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItemsDiv.appendChild(cartItem);
+            });
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            displayCart();
+        }
+
+        function placeOrder() {
+            if (cart.length > 0) {
+                alert('Order placed successfully! Your cart will now be cleared.');
+                cart = [];
+                displayCart();
+                showSection('food');
+            } else {
+                alert('Your cart is empty. Please add items to the cart before placing an order.');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+
